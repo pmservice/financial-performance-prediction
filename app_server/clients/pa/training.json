@@ -1,0 +1,32 @@
+{
+    "action": "${action}",
+    "outputType": "DATA_URL",
+    "model": {
+        "id": "${modelId}",
+		    "name": "${modelName}"
+    },
+    "dbDefinitions": {
+         "db1":
+               {
+                   "type": "DashDB",
+                   "db": "BLUDB",
+                   "host": "${db1Host}",
+                   "options": "",
+                   "password": "${db1Password}",
+                   "port": "${db1Port}",
+                   "username": "${db1Username}"
+               }
+    },
+    "setting": {
+        "inputs": [
+			{
+                "node": "${inputsNode}",
+                "odbc": {
+                    "dbRef": "db1",
+                    "table": "${tableName}"
+                }
+            }
+        ],
+       "reportFormat": "TAB"
+    }
+}

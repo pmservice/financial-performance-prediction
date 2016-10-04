@@ -1,0 +1,6 @@
+applications:
+- name:    financial-performance-prediction
+  memory:  256M
+  services:
+  - <predictive-analytics-service-name>
+  - <dashDB-service-name>

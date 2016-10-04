@@ -1,0 +1,16 @@
+doctype html
+html
+  head
+    title= title
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.0/jquery.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js')
+    script(src='https://cdn.plot.ly/plotly-1.14.1.min.js')
+    script(type="text/x-mathjax-config").
+      MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+    script(src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.15.35/js/bootstrap-datetimepicker.min.js')
+    script(src='/socket.io/socket.io.js')
+  body.container.base-color4
+    block content
+    script(src='bundle.js')

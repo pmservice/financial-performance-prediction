@@ -1,0 +1,7 @@
+declared-services:
+    financial-performance-prediction-dashDB:
+      label: dashDB
+      plan: Entry
+applications:
+- name:    financial-performance-predition
+  memory:  256M

@@ -1,0 +1,9 @@
+{
+	"Default time series" : {
+		"trend1" : "Trend 1",
+		"trend2" : "Trend 2",
+		"trend3" : "Trend 3",
+		"seasonal1" : "Seasonal timeseries 1",
+		"seasonal2" : "Seasonal timeseries 2"
+	}
+}

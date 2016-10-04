@@ -1,0 +1,29 @@
+{
+  "pm-20":
+  {
+    "credentials": {
+      "access_key": "xxx",
+      "url": "xxx"
+    }
+  },
+  "dashDB":
+  {
+    "name": "dashDB-jw",
+    "label": "dashDB",
+    "plan": "Entry",
+    "credentials": {
+      "port": "xxx",
+      "db": "BLUDB",
+      "username": "xxx",
+      "ssljdbcurl": "",
+      "host": "xxx",
+      "https_url": "",
+      "dsn": "",
+      "hostname": "xxx",
+      "jdbcurl": "",
+      "ssldsn": "",
+      "uri": "",
+      "password": "xxx"
+    }
+  }
+}

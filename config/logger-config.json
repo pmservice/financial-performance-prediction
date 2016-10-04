@@ -1,0 +1,8 @@
+{
+  "morgan": {
+    "loggingType": "combined"
+  },
+  "log4js": {
+    "level": "INFO"
+  }
+}

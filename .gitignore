@@ -1,0 +1,5 @@
+.project
+node_modules
+cfenv.yml
+config/local.json
+log/*
