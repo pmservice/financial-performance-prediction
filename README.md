@@ -1,7 +1,7 @@
 [pa]: https://console.ng.bluemix.net/catalog/services/predictive-analytics/  "PA"
 [ml]: https://console.ng.bluemix.net/catalog/services/ibm-watson-machine-learning/  "ML"
 [bm]: https://console.ng.bluemix.net/
-[general]: https://github.com/pmservice/drug-selection/blob/master/documentation/IBM%20Predictive%20Analytics%20Service%20for%20Bluemix%20-%20General.pdf
+[general]: https://github.com/pmservice/drug-selection/blob/master/documentation/IBM%20Watson%20Machine%20Learning%20for%20Bluemix%20-%20General.pdf
 [pa-api]: https://console.ng.bluemix.net/docs/services/PredictiveModeling/index-gentopic1.html#pm_service_api
 
 # About
