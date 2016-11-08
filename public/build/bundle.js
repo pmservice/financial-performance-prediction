@@ -1,11 +1,10 @@
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	var parentHotUpdateCallback = this["webpackHotUpdate"];
-/******/ 	this["webpackHotUpdate"] = 
-/******/ 	function webpackHotUpdateCallback(chunkId, moreModules) { // eslint-disable-line no-unused-vars
+/******/ 	this["webpackHotUpdate"] = function webpackHotUpdateCallback(chunkId, moreModules) { // eslint-disable-line no-unused-vars
 /******/ 		hotAddUpdateChunk(chunkId, moreModules);
 /******/ 		if(parentHotUpdateCallback) parentHotUpdateCallback(chunkId, moreModules);
 /******/ 	}
-/******/ 	
+/******/
 /******/ 	function hotDownloadUpdateChunk(chunkId) { // eslint-disable-line no-unused-vars
 /******/ 		var head = document.getElementsByTagName("head")[0];
 /******/ 		var script = document.createElement("script");
@@ -14,7 +13,7 @@
 /******/ 		script.src = __webpack_require__.p + "" + chunkId + "." + hotCurrentHash + ".hot-update.js";
 /******/ 		head.appendChild(script);
 /******/ 	}
-/******/ 	
+/******/
 /******/ 	function hotDownloadManifest(callback) { // eslint-disable-line no-unused-vars
 /******/ 		if(typeof XMLHttpRequest === "undefined")
 /******/ 			return callback(new Error("No browser support"));
@@ -51,8 +50,7 @@
 /******/ 		};
 /******/ 	}
 /******/
-/******/ 	
-/******/ 	
+/******/
 /******/ 	// Copied from https://github.com/facebook/react/blob/bef45b0/src/shared/utils/canDefineProperty.js
 /******/ 	var canDefineProperty = false;
 /******/ 	try {
@@ -63,12 +61,12 @@
 /******/ 	} catch(x) {
 /******/ 		// IE will fail on defineProperty
 /******/ 	}
-/******/ 	
+/******/
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "f6e6886e772b7987464d"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "a48bbfc5830510d2a763"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
-/******/ 	
+/******/
 /******/ 	function hotCreateRequire(moduleId) { // eslint-disable-line no-unused-vars
 /******/ 		var me = installedModules[moduleId];
 /******/ 		if(!me) return __webpack_require__;
@@ -106,7 +104,7 @@
 /******/ 				}
 /******/ 			}
 /******/ 		}
-/******/ 	
+/******/
 /******/ 		function ensure(chunkId, callback) {
 /******/ 			if(hotStatus === "ready")
 /******/ 				hotSetStatus("prepare");
@@ -117,7 +115,7 @@
 /******/ 				} finally {
 /******/ 					finishChunkLoading();
 /******/ 				}
-/******/ 	
+/******/
 /******/ 				function finishChunkLoading() {
 /******/ 					hotChunksLoading--;
 /******/ 					if(hotStatus === "prepare") {
@@ -141,7 +139,7 @@
 /******/ 		}
 /******/ 		return fn;
 /******/ 	}
-/******/ 	
+/******/
 /******/ 	function hotCreateModule(moduleId) { // eslint-disable-line no-unused-vars
 /******/ 		var hot = {
 /******/ 			// private stuff
@@ -150,7 +148,7 @@
 /******/ 			_selfAccepted: false,
 /******/ 			_selfDeclined: false,
 /******/ 			_disposeHandlers: [],
-/******/ 	
+/******/
 /******/ 			// Module API
 /******/ 			active: true,
 /******/ 			accept: function(dep, callback) {
@@ -183,7 +181,7 @@
 /******/ 				var idx = hot._disposeHandlers.indexOf(callback);
 /******/ 				if(idx >= 0) hot._disposeHandlers.splice(idx, 1);
 /******/ 			},
-/******/ 	
+/******/
 /******/ 			// Management API
 /******/ 			check: hotCheck,
 /******/ 			apply: hotApply,
@@ -198,22 +196,22 @@
 /******/ 				var idx = hotStatusHandlers.indexOf(l);
 /******/ 				if(idx >= 0) hotStatusHandlers.splice(idx, 1);
 /******/ 			},
-/******/ 	
+/******/
 /******/ 			//inherit from previous dispose call
 /******/ 			data: hotCurrentModuleData[moduleId]
 /******/ 		};
 /******/ 		return hot;
 /******/ 	}
-/******/ 	
+/******/
 /******/ 	var hotStatusHandlers = [];
 /******/ 	var hotStatus = "idle";
-/******/ 	
+/******/
 /******/ 	function hotSetStatus(newStatus) {
 /******/ 		hotStatus = newStatus;
 /******/ 		for(var i = 0; i < hotStatusHandlers.length; i++)
 /******/ 			hotStatusHandlers[i].call(null, newStatus);
 /******/ 	}
-/******/ 	
+/******/
 /******/ 	// while downloading
 /******/ 	var hotWaitingFiles = 0;
 /******/ 	var hotChunksLoading = 0;
@@ -221,15 +219,15 @@
 /******/ 	var hotRequestedFilesMap = {};
 /******/ 	var hotAvailibleFilesMap = {};
 /******/ 	var hotCallback;
-/******/ 	
+/******/
 /******/ 	// The update info
 /******/ 	var hotUpdate, hotUpdateNewHash;
-/******/ 	
+/******/
 /******/ 	function toModuleId(id) {
 /******/ 		var isNumber = (+id) + "" === id;
 /******/ 		return isNumber ? +id : id;
 /******/ 	}
-/******/ 	
+/******/
 /******/ 	function hotCheck(apply, callback) {
 /******/ 		if(hotStatus !== "idle") throw new Error("check() is only allowed in idle status");
 /******/ 		if(typeof apply === "function") {
@@ -249,14 +247,14 @@
 /******/ 				callback(null, null);
 /******/ 				return;
 /******/ 			}
-/******/ 	
+/******/
 /******/ 			hotRequestedFilesMap = {};
 /******/ 			hotAvailibleFilesMap = {};
 /******/ 			hotWaitingFilesMap = {};
 /******/ 			for(var i = 0; i < update.c.length; i++)
 /******/ 				hotAvailibleFilesMap[update.c[i]] = true;
 /******/ 			hotUpdateNewHash = update.h;
-/******/ 	
+/******/
 /******/ 			hotSetStatus("prepare");
 /******/ 			hotCallback = callback;
 /******/ 			hotUpdate = {};
@@ -270,7 +268,7 @@
 /******/ 			}
 /******/ 		});
 /******/ 	}
-/******/ 	
+/******/
 /******/ 	function hotAddUpdateChunk(chunkId, moreModules) { // eslint-disable-line no-unused-vars
 /******/ 		if(!hotAvailibleFilesMap[chunkId] || !hotRequestedFilesMap[chunkId])
 /******/ 			return;
@@ -284,7 +282,7 @@
 /******/ 			hotUpdateDownloaded();
 /******/ 		}
 /******/ 	}
-/******/ 	
+/******/
 /******/ 	function hotEnsureUpdateChunk(chunkId) {
 /******/ 		if(!hotAvailibleFilesMap[chunkId]) {
 /******/ 			hotWaitingFilesMap[chunkId] = true;
@@ -294,7 +292,7 @@
 /******/ 			hotDownloadUpdateChunk(chunkId);
 /******/ 		}
 /******/ 	}
-/******/ 	
+/******/
 /******/ 	function hotUpdateDownloaded() {
 /******/ 		hotSetStatus("ready");
 /******/ 		var callback = hotCallback;
@@ -312,7 +310,7 @@
 /******/ 			callback(null, outdatedModules);
 /******/ 		}
 /******/ 	}
-/******/ 	
+/******/
 /******/ 	function hotApply(options, callback) {
 /******/ 		if(hotStatus !== "ready") throw new Error("apply() is only allowed in ready status");
 /******/ 		if(typeof options === "function") {
@@ -328,11 +326,11 @@
 /******/ 				if(err) throw err;
 /******/ 			};
 /******/ 		}
-/******/ 	
+/******/
 /******/ 		function getAffectedStuff(module) {
 /******/ 			var outdatedModules = [module];
 /******/ 			var outdatedDependencies = {};
-/******/ 	
+/******/
 /******/ 			var queue = outdatedModules.slice();
 /******/ 			while(queue.length > 0) {
 /******/ 				var moduleId = queue.pop();
@@ -363,10 +361,10 @@
 /******/ 					queue.push(parentId);
 /******/ 				}
 /******/ 			}
-/******/ 	
+/******/
 /******/ 			return [outdatedModules, outdatedDependencies];
 /******/ 		}
-/******/ 	
+/******/
 /******/ 		function addAllToSet(a, b) {
 /******/ 			for(var i = 0; i < b.length; i++) {
 /******/ 				var item = b[i];
@@ -374,7 +372,7 @@
 /******/ 					a.push(item);
 /******/ 			}
 /******/ 		}
-/******/ 	
+/******/
 /******/ 		// at begin all updates modules are outdated
 /******/ 		// the "outdated" status can propagate to parents if they don't accept the children
 /******/ 		var outdatedDependencies = {};
@@ -405,7 +403,7 @@
 /******/ 				}
 /******/ 			}
 /******/ 		}
-/******/ 	
+/******/
 /******/ 		// Store self accepted outdated modules to require them later by the module system
 /******/ 		var outdatedSelfAcceptedModules = [];
 /******/ 		for(var i = 0; i < outdatedModules.length; i++) {
@@ -416,7 +414,7 @@
 /******/ 					errorHandler: installedModules[moduleId].hot._selfAccepted
 /******/ 				});
 /******/ 		}
-/******/ 	
+/******/
 /******/ 		// Now in "dispose" phase
 /******/ 		hotSetStatus("dispose");
 /******/ 		var queue = outdatedModules.slice();
@@ -424,9 +422,9 @@
 /******/ 			var moduleId = queue.pop();
 /******/ 			var module = installedModules[moduleId];
 /******/ 			if(!module) continue;
-/******/ 	
+/******/
 /******/ 			var data = {};
-/******/ 	
+/******/
 /******/ 			// Call dispose handlers
 /******/ 			var disposeHandlers = module.hot._disposeHandlers;
 /******/ 			for(var j = 0; j < disposeHandlers.length; j++) {
@@ -434,13 +432,13 @@
 /******/ 				cb(data);
 /******/ 			}
 /******/ 			hotCurrentModuleData[moduleId] = data;
-/******/ 	
+/******/
 /******/ 			// disable module (this disables requires from this module)
 /******/ 			module.hot.active = false;
-/******/ 	
+/******/
 /******/ 			// remove module from cache
 /******/ 			delete installedModules[moduleId];
-/******/ 	
+/******/
 /******/ 			// remove "parents" references from all children
 /******/ 			for(var j = 0; j < module.children.length; j++) {
 /******/ 				var child = installedModules[module.children[j]];
@@ -451,7 +449,7 @@
 /******/ 				}
 /******/ 			}
 /******/ 		}
-/******/ 	
+/******/
 /******/ 		// remove outdated dependency from module children
 /******/ 		for(var moduleId in outdatedDependencies) {
 /******/ 			if(Object.prototype.hasOwnProperty.call(outdatedDependencies, moduleId)) {
@@ -464,19 +462,19 @@
 /******/ 				}
 /******/ 			}
 /******/ 		}
-/******/ 	
+/******/
 /******/ 		// Not in "apply" phase
 /******/ 		hotSetStatus("apply");
-/******/ 	
+/******/
 /******/ 		hotCurrentHash = hotUpdateNewHash;
-/******/ 	
+/******/
 /******/ 		// insert new code
 /******/ 		for(var moduleId in appliedUpdate) {
 /******/ 			if(Object.prototype.hasOwnProperty.call(appliedUpdate, moduleId)) {
 /******/ 				modules[moduleId] = appliedUpdate[moduleId];
 /******/ 			}
 /******/ 		}
-/******/ 	
+/******/
 /******/ 		// call accept handlers
 /******/ 		var error = null;
 /******/ 		for(var moduleId in outdatedDependencies) {
@@ -501,7 +499,7 @@
 /******/ 				}
 /******/ 			}
 /******/ 		}
-/******/ 	
+/******/
 /******/ 		// Load self accepted modules
 /******/ 		for(var i = 0; i < outdatedSelfAcceptedModules.length; i++) {
 /******/ 			var item = outdatedSelfAcceptedModules[i];
@@ -521,13 +519,13 @@
 /******/ 					error = err;
 /******/ 			}
 /******/ 		}
-/******/ 	
+/******/
 /******/ 		// handle errors in accept handlers and self accepted module load
 /******/ 		if(error) {
 /******/ 			hotSetStatus("fail");
 /******/ 			return callback(error);
 /******/ 		}
-/******/ 	
+/******/
 /******/ 		hotSetStatus("idle");
 /******/ 		callback(null, outdatedModules);
 /******/ 	}
@@ -599,14 +597,10 @@
 	
 	__webpack_require__(295);
 	
-	/* eslint max-len: 0 */
-	
 	if (global._babelPolyfill) {
 	  throw new Error("only one instance of babel-polyfill is allowed");
 	}
 	global._babelPolyfill = true;
-	
-	// Should be removed in the next major release:
 	
 	var DEFINE_PROPERTY = "defineProperty";
 	function define(O, key, value) {
@@ -7865,8 +7859,9 @@
 	  runtime = global.regeneratorRuntime = inModule ? module.exports : {};
 	
 	  function wrap(innerFn, outerFn, self, tryLocsList) {
-	    // If outerFn provided, then outerFn.prototype instanceof Generator.
-	    var generator = Object.create((outerFn || Generator).prototype);
+	    // If outerFn provided and outerFn.prototype is a Generator, then outerFn.prototype instanceof Generator.
+	    var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator;
+	    var generator = Object.create(protoGenerator.prototype);
 	    var context = new Context(tryLocsList || []);
 	
 	    // The ._invoke method unifies the implementations of the .next,
@@ -8860,9 +8855,9 @@
 	                null,
 	                _react2.default.createElement(
 	                  "a",
-	                  { href: "https://console.ng.bluemix.net/docs/#services/PredictiveModeling/index.html", className: "h5 button-color", target: "_blank" },
-	                  _react2.default.createElement("img", { src: "images/pa_icon.png", className: "inline-icon" }),
-	                  "Predictive Analytics"
+	                  { href: "https://console.ng.bluemix.net/catalog/services/ibm-watson-machine-learning/", className: "h5 button-color", target: "_blank" },
+	                  _react2.default.createElement("img", { src: "images/ml_icon.png", className: "inline-icon" }),
+	                  "Watson Machine Learning"
 	                )
 	              )
 	            )
@@ -38084,7 +38079,7 @@
 	              _react2.default.createElement(
 	                "a",
 	                { href: "#", onClick: ctx._closeAlert.bind(this), className: "close", "aria-label": "close" },
-	                "×"
+	                "\xD7"
 	              ),
 	              _react2.default.createElement(
 	                "strong",
@@ -38101,7 +38096,7 @@
 	              _react2.default.createElement(
 	                "a",
 	                { href: "#", onClick: ctx._closeAlert.bind(this), className: "close", "aria-label": "close" },
-	                "×"
+	                "\xD7"
 	              ),
 	              _react2.default.createElement(
 	                "strong",
@@ -43492,7 +43487,7 @@
 	        _react2.default.createElement(
 	          "p",
 	          null,
-	          "Application deployed on Predictive Analytics Service consists of two parts."
+	          "Application deployed on Watson Machine Learning Service consists of two parts."
 	        ),
 	        _react2.default.createElement(
 	          "ol",
@@ -43516,7 +43511,7 @@
 	        _react2.default.createElement(
 	          "p",
 	          null,
-	          "Time series sample application is using IBM Predictive Analytics and IBM SPSS Modeler together to provide functionalities mentioned above."
+	          "Time series sample application is using IBM Watson Machine Learning and IBM SPSS Modeler together to provide functionalities mentioned above."
 	        ),
 	        _react2.default.createElement(
 	          "p",
@@ -43531,17 +43526,17 @@
 	        _react2.default.createElement(
 	          "p",
 	          null,
-	          "IBM Predictive Analytics takes things even further and allows us to deploy streams that we develop in IBM SPSS Modeler to cloud environment to turn our data models into fully fledged business applications."
+	          "IBM Watson Machine Learning takes things even further and allows us to deploy streams that we develop in IBM SPSS Modeler to cloud environment to turn our data models into fully fledged business applications."
 	        ),
 	        _react2.default.createElement(
 	          "p",
 	          null,
-	          "In the context of this application, IBM Predictive Analytics Service provides useful framework to gather, explore and forecast financial and economical time series in iterative nature without requiring repetitive manual steps and automating the whole end-to-end process."
+	          "In the context of this application, IBM Watson Machine Learning Service provides useful framework to gather, explore and forecast financial and economical time series in iterative nature without requiring repetitive manual steps and automating the whole end-to-end process."
 	        ),
 	        _react2.default.createElement(
 	          "p",
 	          null,
-	          "One can see how powerful it can be to use IBM SPSS Modeler and IBM Predictive Analytics Service together to work with financial and economical time series and how IBM Predictive Analytics puts all these capabilities into the hands of its users."
+	          "One can see how powerful it can be to use IBM SPSS Modeler and IBM Watson Machine Learning Service together to work with financial and economical time series and how IBM Watson Machine Learning puts all these capabilities into the hands of its users."
 	        ),
 	        _react2.default.createElement("hr", null),
 	        _react2.default.createElement(
@@ -43561,7 +43556,7 @@
 	            _react2.default.createElement(
 	              "b",
 	              null,
-	              "“in”"
+	              "\u201Cin\u201D"
 	            ),
 	            " using annotations.",
 	            _react2.default.createElement("br", null),
@@ -43574,7 +43569,7 @@
 	          _react2.default.createElement(
 	            "li",
 	            null,
-	            "Input file should have fields named DATE and VALUE with types “Date” and “Real”",
+	            "Input file should have fields named DATE and VALUE with types \u201CDate\u201D and \u201CReal\u201D",
 	            _react2.default.createElement("br", null),
 	            _react2.default.createElement(
 	              "a",
@@ -43591,7 +43586,7 @@
 	          _react2.default.createElement(
 	            "li",
 	            null,
-	            "You should use only one scoring branch which is “Table” node in this case.",
+	            "You should use only one scoring branch which is \u201CTable\u201D node in this case.",
 	            _react2.default.createElement("br", null),
 	            _react2.default.createElement(
 	              "a",
@@ -43608,7 +43603,7 @@
 	          _react2.default.createElement(
 	            "li",
 	            null,
-	            "“Table” node should include fields below after running the stream.",
+	            "\u201CTable\u201D node should include fields below after running the stream.",
 	            _react2.default.createElement("br", null),
 	            _react2.default.createElement(
 	              "a",
@@ -43806,7 +43801,7 @@
 	          _react2.default.createElement(
 	            "div",
 	            { className: "form-group" },
-	            _react2.default.createElement("span", { className: "glyphicon glyphicon-info-sign inline-glyphicon", "data-toggle": "tooltip", title: "Provide company name – this value will be used as label for imported data. This field is required if you plan to import and use custom data", "data-placement": "right" }),
+	            _react2.default.createElement("span", { className: "glyphicon glyphicon-info-sign inline-glyphicon", "data-toggle": "tooltip", title: "Provide company name \u2013 this value will be used as label for imported data. This field is required if you plan to import and use custom data", "data-placement": "right" }),
 	            _react2.default.createElement(
 	              "label",
 	              { "for": "companyName" },
@@ -43818,7 +43813,7 @@
 	          _react2.default.createElement(
 	            "div",
 	            { className: "form-group" },
-	            _react2.default.createElement("span", { className: "glyphicon glyphicon-info-sign inline-glyphicon", "data-toggle": "tooltip", title: "Provide company symbol – this value will be used to identify your data on charts. This field is required if you plan to import and use custom data", "data-placement": "right" }),
+	            _react2.default.createElement("span", { className: "glyphicon glyphicon-info-sign inline-glyphicon", "data-toggle": "tooltip", title: "Provide company symbol \u2013 this value will be used to identify your data on charts. This field is required if you plan to import and use custom data", "data-placement": "right" }),
 	            _react2.default.createElement(
 	              "label",
 	              { "for": "ticker" },
@@ -43848,7 +43843,7 @@
 	                  _react2.default.createElement(
 	                    "button",
 	                    { type: "button", className: "close", "data-dismiss": "modal" },
-	                    "×"
+	                    "\xD7"
 	                  ),
 	                  _react2.default.createElement(
 	                    "h4",
@@ -43975,7 +43970,7 @@
 	      var reader = new FileReader();
 	      var file = files[0];
 	      reader.onload = function (evt) {
-	        var isCsv = arguments.length <= 1 || arguments[1] === undefined ? file.name.endsWith('.csv') : arguments[1];
+	        var isCsv = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : file.name.endsWith('.csv');
 	
 	        var inputs = evt.target.result;
 	        _this2.setState({
@@ -44525,8 +44520,9 @@
 		"./images/guidelines_4.png": 586,
 		"./images/guidelines_5.png": 587,
 		"./images/guidelines_6.png": 588,
-		"./images/pa_icon.png": 589,
-		"./images/upload.svg": 590,
+		"./images/ml_icon.png": 589,
+		"./images/pa_icon.png": 590,
+		"./images/upload.svg": 591,
 		"./stylesheets/style.css": 579
 	};
 	function webpackContext(req) {
@@ -44589,10 +44585,16 @@
 /* 589 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "images/pa_icon.png";
+	module.exports = __webpack_require__.p + "images/ml_icon.png";
 
 /***/ },
 /* 590 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "images/pa_icon.png";
+
+/***/ },
+/* 591 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "images/upload.svg";
