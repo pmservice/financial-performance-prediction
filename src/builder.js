@@ -64,9 +64,9 @@ const AppLayout = React.createClass({
                   </a>
                 </li>
                 <li>
-                  <a href="https://console.ng.bluemix.net/docs/#services/PredictiveModeling/index.html" className="h5 button-color" target="_blank">
-                    <img src="images/pa_icon.png" className="inline-icon" />
-                    Predictive Analytics
+                  <a href="https://console.ng.bluemix.net/catalog/services/ibm-watson-machine-learning/" className="h5 button-color" target="_blank">
+                    <img src="images/ml_icon.png" className="inline-icon" />
+                    Watson Machine Learning
                   </a>
                 </li>
               </ul>
