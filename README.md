@@ -29,7 +29,7 @@ For details, see [this section](#how-to-use-the-application).
 The general, high-level steps are described below. Refer to [IBM Watson Machine Learning Service for Bluemix - General][general] for complete details.
 
 1. From the Bluemix catalog, choose the [Watson Machine Learning][ml] and [dashDB](https://console.ng.bluemix.net/catalog/services/dashdb/) services, which will later bind to a Node.js application created from this sample. From this point, note that the [service][pa] itself offers a set of samples (this particular one among them) that can be automatically deployed and bound, which is the simplest way to see the sample in action.
-2. Upload an SPSS Modeler stream file to your instance of the *Watson Machine Learning* service. This sample application comes with an SPSS Modeler stream (*stream/financial-performance-prediction.str*) that can be used for this purpose. The stream can also be created from scratch (see [Prepare SPSS Modeler stream](#prepare-spss-modeler-stream)).
+2. Upload an SPSS Modeler stream file to your instance of the *Watson Machine Learning* service. This sample application comes with an SPSS Modeler stream (*stream/financial-performance-prediction.str*) that can be used for this purpose. The stream can also be created from scratch (see [Preparing an SPSS Modeler stream](#prepare-spss-modeler-stream)).
 
 
 # Deploying the prebuilt app
@@ -37,10 +37,10 @@ For a fast start, you can deploy the prebuilt app to Bluemix by clicking the fol
 
 [![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/pmservice/financial-performance-prediction)
 
-Note that the application is fully functional only if bound to instances of the *Watson Machine Learning* and *dashDB* services, which must be done manually. See [instructions](#binding-services-in-bluemix).
+Note that the application is fully functional only if bound to instances of the *Watson Machine Learning* and *dashDB* services, which must be done manually. See the [instructions](#binding-services-in-bluemix).
 
 ### Manually deploying to Bluemix
-As an alternative to the button, you can manually deploy the application to Bluemix by pushing it with Cloud Foundry commands, as described in the next [section](#push-to-bluemix). Manual deployment is required when you want to deploy [modified source code](#source-code-changes). Manual deployment consists of [pushing](#push-to-bluemix) the application to Bluemix followed by [binding](#binding-services-in-bluemix) the *Watson Machine Learning* service to the deployed application.
+As an alternative to the button, you can manually deploy the application to Bluemix by pushing it with Cloud Foundry commands, as described in the [next section](#push-to-bluemix). Manual deployment is required when you want to deploy [modified source code](#source-code-changes). Manual deployment consists of [pushing](#push-to-bluemix) the application to Bluemix followed by [binding](#binding-services-in-bluemix) the *Watson Machine Learning* service to the deployed application.
 
 ##### Pushing to Bluemix
 To push an application to Bluemix, open a shell, change to the directory of your application, and run the following:
