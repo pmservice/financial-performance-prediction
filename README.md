@@ -98,16 +98,16 @@ The application running locally can use Bluemix services if the credentials for 
 
 ### Preparing input data  
 ##### 1. Downloading data from Yahoo Finance
-  * Go to finance.yahoo.com
-  * Type any company name or symbol of your interest. In this example, we'll type “IBM” in the search box and select IBM from the search results.
+  * Go to *finance.yahoo.com*.
+  * Type any company name or symbol of your interest. In this example, we'll type **IBM** in the search box and select **IBM** from the search results.
 
 ![Search screenshot](/doc/search-tkr-scr.png)
 
-  * Click the “Historical Data” tab.
+  * Go to the **Historical Data** tab.
 
 ![Result screenshot](/doc/search-result-scr.png)
 
-  * Select a time range, click “Apply,” and click “Download” to save the dataset to your local machine.
+  * Select a time range, click **Apply**, and click **Download** to save the dataset to your local machine.
 
 ![Download screenshot](/doc/search-download-scr.png)
 
@@ -115,13 +115,13 @@ The application running locally can use Bluemix services if the credentials for 
 
 ![Result format screenshot](/doc/search-format-scr.png)
 
-  * Open your application and click “Import Custom Data.”
+  * Open your application and click **Import Custom Data**.
 
 ![Import Custom Data screenshot](/doc/import-custom-data-scr.png)
 
-  * Browse to the file you downloaded from Yahoo Finance. Add a “Company name” and “Symbol” and click “Import & Save Data.”
+  * Browse to the file you downloaded from Yahoo Finance. Add a **Company name** and **Symbol** and click **Import & Save Data**.
 
-  The “Symbol” should be short and descriptive because the application will use it for chart legends.
+  The **Symbol** should be short and descriptive because the application will use it for chart legends.
 
 ##### 2. Preparing your own data
 As an alternative to downloading Yahoo Finance data, you can also import other data files. See the following guidelines.
@@ -130,56 +130,56 @@ As an alternative to downloading Yahoo Finance data, you can also import other d
 
 ![Result format screenshot](/doc/search-format-scr.png)
 
-  *	The data file must have at least 2 columns named as “Date” and “Adj Close.” These columns will be filtered during import and used as the final dataset.
+  *	The data file must have at least two columns named **Date** and **Adj Close**. These columns will be filtered during import and used as the final dataset.
 
 ### Preparing an SPSS Modeler stream
   * Create a new stream.
-  * From the “Source” palette, add a “Var. File” node.
+  * From the **Source** palette, add a **Var. File** node.
 
 ![Var. File node screenshot](/doc/var-node-scr.png)
 
-  * Browse to the “table.csv” file.
+  * Browse to the *table.csv* file.
 
 ![Browse table.csv file screenshot](/doc/spss-browse-file.png)
 
-  * On the Annotations tab, rename the “Var. File” node to "**in**" and click “OK.”
+  * On the **Annotations** tab, rename the **Var. File** node to "**in**" and click **OK**.
 
 ![Rename node screenshot](/doc/spss-rename.png)
 
-  * From the “Field Ops” palette, add a “Type” node.
+  * From the **Field Ops** palette, add a **Type** node.
 
 ![Rename node screenshot](/doc/spss-type-node.png)
 
-  *	Set the “VALUE” field’s role to “Both.”
+  *	Set the **VALUE** field’s role to **Both**.
 
 ![Rename node screenshot](/doc/spss-set-both.png)
 
-  * Click “Read Values” and click “OK.”
-  * From the “Modeling” palette, add a “Time Series” node.
+  * Click **Read Values** and click **OK**.
+  * From the **Modeling** palette, add a **Time Series** node.
 
 ![Time Series node screenshot](/doc/spss-time-series-node.png)
 
-  * Double-click the “Time Series” node, go to the “Data Specifications” tab, and set the “Date/time field” to the “DATE” field and set the “Time interval” to “Months.”
+  * Double-click the **Time Series** node, go to the **Data Specifications** tab, and set the **Date/time** field to **DATE** and set the **Time interval** to **Months**.
 
 ![Data Specifications screenshot](/doc/spss-data-specs.png)
 
-  * Go to the “Build Options” tab and adjust the settings as follows:
+  * Go to the **Build Options** tab and adjust the settings as follows:
 
 ![Build Options screenshot](/doc/spss-build-options.png)
 
-  * Go to the “Model Options” tab and select “Extend records into the future.”
+  * Go to the **Model Options** tab and select **Extend records into the future**.
 
 ![Model Options screenshot](/doc/spss-model-options.png)
 
-  * Click “Run” to run stream.
+  * Click **Run** to run stream.
 
 ![Run a stream screenshot](/doc/spss-stream-run.png)
 
-  * From the “Output” palette, add a “Table” node to the stream.
+  * From the **Output** palette, add a **Table** node to the stream.
 
 ![Add Table node screenshot](/doc/spss-add-table-output.png)
 
-  * Right-click the “Table” node and select “Use as Scoring Branch.”
+  * Right-click the **Table**node and select **Use as Scoring Branch**.
 
 ![Use as scoring branch screenshot](/doc/spss-scoring-branch.png)
 
