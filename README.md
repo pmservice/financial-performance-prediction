@@ -10,8 +10,10 @@ This sample application demonstrates the [IBM Watson Machine Learning][ml] [Blue
 This application is based on the Node.js and Express framework. It uses the [Watson Machine Learning service API][pa-api] to integrate with IBM SPSS Modeler analytics.
 
 The application delivers an analytics-driven environment where one can explore time series from various perspectives and use the most suitable forecasting methods to forecast the future. With this sample application, you can:
+
 * Download financial and economical time series from open data sources and explore them to observe general characteristics such as trend, seasonality, return distributions, and correlation between time series.
 * Perform near-future forecasting based on historical data with a level of confidence so that we can use time series analysis and forecasting to solve our specific business problem. 
+
 For details, see [this section](#how-to-use-the-application).
 
 ![Application screenshot](/doc/app-scr.png)
@@ -27,7 +29,7 @@ For details, see [this section](#how-to-use-the-application).
 The general, high-level steps are described below. Refer to [IBM Watson Machine Learning Service for Bluemix - General][general] for complete details.
 
 1. From the Bluemix catalog, choose the [Watson Machine Learning][ml] and [dashDB](https://console.ng.bluemix.net/catalog/services/dashdb/) services, which will later bind to a Node.js application created from this sample. From this point, note that the [service][pa] itself offers a set of samples (this particular one among them) that can be automatically deployed and bound, which is the simplest way to see the sample in action.
-2. Upload an SPSS Modeler stream file to your instance of the *Watson Machine Learning* service. This sample application comes with an SPSS Modeler stream (stream/financial-performance-prediction.str) that can be used for this purpose. The stream can also be created from scratch (see [Prepare SPSS Modeler stream](#prepare-spss-modeler-stream)).
+2. Upload an SPSS Modeler stream file to your instance of the *Watson Machine Learning* service. This sample application comes with an SPSS Modeler stream (*stream/financial-performance-prediction.str*) that can be used for this purpose. The stream can also be created from scratch (see [Prepare SPSS Modeler stream](#prepare-spss-modeler-stream)).
 
 
 # Deploying the prebuilt app
@@ -42,9 +44,10 @@ As an alternative to the button, you can manually deploy the application to Blue
 
 ##### Pushing to Bluemix
 To push an application to Bluemix, open a shell, change to the directory of your application, and run the following:
-  * `cf api <region>` where <*region*> part may be https://api.ng.bluemix.net or https://api.eu-gb.bluemix.net depending on the Bluemix region you want to work with (US or Europe, respectively)
-  * `cf login` which is interactive; provide all required data
-  * `cf push <app-name>` where <*app-name*> is the application name of your choice
+
+* `cf api <region>` where <*region*> part may be https://api.ng.bluemix.net or https://api.eu-gb.bluemix.net depending on the Bluemix region you want to work with (US or Europe, respectively)
+* `cf login` which is interactive; provide all required data
+* `cf push <app-name>` where <*app-name*> is the application name of your choice
 
 `cf push` can also read the manifest file (see [Cloud Foundry Documentation](http://docs.cloudfoundry.org/devguide/deploy-apps/manifest.html)). If you decide to use manifest, you can hardcode the names of your Watson Machine Learning and dashDB service instances instead of binding them manually. See the *services* section of the [manifest.yml.template](manifest.yml.template) file.
 
@@ -56,39 +59,41 @@ See the [instructions](#binding-services-in-bluemix).
 ### Deploying locally
 Running the application locally is useful when you want to test your changes before deploying them to Bluemix. For information about working with source code, see [Source code changes](#source-code-changes).
 
-When the changes are ready, open a shell, change the directory to your cloned repository, and run `npm start` to start the application. The running application is available in a browser at http://localhost:4000. In develompent mode, the hot reloading feature is available at port 4010.
+When the changes are ready, open a shell, change the directory to your cloned repository, and run `npm start` to start the application. The running application is available in a browser at *http://localhost:4000*. In develompent mode, the hot reloading feature is available at port 4010.
 
 Applications that run locally can also use the Watson Machine Learning and dashDB Bluemix services. See the [instructions](#link-local-application-with-the-bluemix-environment).
 
 ## Rebuilding the app after modifying source code
 The repository comes with prebuilt application. If you want to rebuild the app after modifying the sources:
-  * Follow steps listed in the [Requirements](#requirements) section
-  * Change to the directory containing the downloaded source code or the cloned git repo
-  * Run `npm install`
-  * Run `./node_modules/.bin/webpack`
+
+* Follow steps listed in the [Requirements](#requirements) section
+* Change to the directory containing the downloaded source code or the cloned git repo
+* Run `npm install`
+* Run `./node_modules/.bin/webpack`
 
 
 # Watson Machine Learning service (classic service with SPSS streams)
 To add the power of IBM SPSS Modeler analytics to any application, use the [Watson Machine Learning service API][pa-api].
 
 This particular application involves:
-  * Retrieving all models currently deployed to the Watson Machine Learning service (model API)
-  * Uploading a stream file to use in jobs (file API)
-  * Submitting TRAINING and BATCH_SCORE jobs against an uploaded Modeler stream file (service batch job API)
-  * Checking the status of a job (service batch job API)
-  * Deleting jobs (service batch job API)
-  * Deleting files (file API)
+
+* Retrieving all models currently deployed to the Watson Machine Learning service (model API)
+* Uploading a stream file to use in jobs (file API)
+* Submitting TRAINING and BATCH_SCORE jobs against an uploaded Modeler stream file (service batch job API)
+* Checking the status of a job (service batch job API)
+* Deleting jobs (service batch job API)
+* Deleting files (file API)
 
 The code placed in the [pa](app_server/clients/pa) folder provides an example of how to use this [API][pa-api].
 
 ## Binding services in Bluemix
-As stated in the [Requirements](#requirements) section, from the Bluemix catalog you must order an instance of the *Watson Machine Learning* and *dashDB* services if you don't yet have them. THe next step is to connect your deployed application to those services, which is called *binding*. There are a few ways to achieve this in the Bluemix environment. [This document](https://console.ng.bluemix.net/docs/cfapps/ee.html) describes binding either via the Bluemix user interface or by using cf cli.
+As stated in the [Requirements](#requirements) section, from the Bluemix catalog you must order an instance of the *Watson Machine Learning* and *dashDB* services if you don't yet have them. The next step is to connect your deployed application to those services, which is called *binding*. There are a few ways to achieve this in the Bluemix environment. [This document](https://console.ng.bluemix.net/docs/cfapps/ee.html) describes binding either via the Bluemix user interface or by using cf cli.
 
 ## Linking a local application with the Bluemix environment
 The application running locally can use Bluemix services if the credentials for the *Watson Machine Learning* and *dashDB* services are appropriately pasted into the *./config/local.json* file. Complete the following steps:
 
 1. Deploy the application to Bluemix and bind it to the [Watson Machine Learning service][ml].
-2. Go to the application overview pane, choose bound Watson Machine Learning service, and click 'Show Credentials.' Copy the (pm-20) *credentials* json portion (url, access_key).
+2. Go to the application overview pane, choose bound Watson Machine Learning service, and click **Show Credentials**. Copy the (pm-20) *credentials* json portion (url, access_key).
 3. Create the *./config/local.json* file by copying the *./config/local.json.template* file. Edit the *local.json* file and paste the pm-20 credentials you obtained in the previous step.
 4. Perform similar steps for the *dashDB* service and its credentials.
 5. Start your local application. You should now be able to interact with the Watson Machine Learning service (for example, by listing the uploaded streams).
