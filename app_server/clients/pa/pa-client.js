@@ -39,13 +39,15 @@ var PAService = module.exports = function (pmServiceCredentials) {
     }
   }
   if (credentials) {
-    try {
-      this.baseUrl = credentials.url;
+    if (credentials.url != null) {
+      let {url} = credentials;
+      let v1Url = '/pm/v1/';
+      this.baseUrl = url.includes(v1Url) ? url : url + v1Url;
       if (!this.baseUrl.endsWith('/')) {
         this.baseUrl += '/';
       }
-    } catch (e) {
-      logger.warn('in PAService definition, baseUrl not defined - setting base url to empty string');
+    } else {
+      logger.warn('in PAService definition, url is not defined - setting base url to empty string');
       this.baseUrl = '';
     }
 
