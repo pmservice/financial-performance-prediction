@@ -12,7 +12,7 @@ This application is based on the Node.js and Express framework. It uses the [Wat
 The application delivers an analytics-driven environment where one can explore time series from various perspectives and use the most suitable forecasting methods to forecast the future. With this sample application, you can:
 
 * Download financial and economical time series from open data sources and explore them to observe general characteristics such as trend, seasonality, return distributions, and correlation between time series.
-* Perform near-future forecasting based on historical data with a level of confidence so that we can use time series analysis and forecasting to solve our specific business problem. 
+* Perform near-future forecasting based on historical data with a level of confidence so that we can use time series analysis and forecasting to solve our specific business problem.
 
 For details, see [this section](#how-to-use-the-application).
 
@@ -35,7 +35,7 @@ The general, high-level steps are described below. Refer to [IBM Watson Machine 
 # Deploying the prebuilt app
 For a fast start, you can deploy the prebuilt app to Bluemix by clicking the following button:
 
-[![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/pmservice/financial-performance-prediction)
+[![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/pmservice/financial-performance-prediction&appName=predicting-financial&branch=master)
 
 Note that the application is fully functional only if bound to instances of the *Watson Machine Learning* and *dashDB* services, which must be done manually. See the [instructions](#binding-services-in-bluemix).
 
